@@ -18,11 +18,13 @@ const Navbar = () => {
           <button
             className='btn cute-button'
             style={{
-              marginRight: '10px', backgroundColor: '#ffcccb', borderRadius: '5px',color: 'black', fontWeight: 'bold', padding: '10px 20px', border: '2px solid #6a4d7a', transition: 'background-color 0.3s ease, border-color 0.3s ease',
+              marginRight: '10px', backgroundColor: '#ffcccb', borderRadius: '5px', color: 'black', fontWeight: 'bold', padding: '10px 20px', border: '2px solid #6a4d7a', transition: 'background-color 0.3s ease, border-color 0.3s ease',
             }}
-            onMouseOver={(e) => { e.target.style.backgroundColor = '#ff9999'; e.target.style.borderColor = '#6a5acd';
+            onMouseOver={(e) => {
+              e.target.style.backgroundColor = '#ff9999'; e.target.style.borderColor = '#6a5acd';
             }}
-            onMouseOut={(e) => { e.target.style.backgroundColor = '#ffcccb'; e.target.style.borderColor = '#6a4d7a';
+            onMouseOut={(e) => {
+              e.target.style.backgroundColor = '#ffcccb'; e.target.style.borderColor = '#6a4d7a';
             }}
           >
             Ropa Nena
@@ -30,7 +32,8 @@ const Navbar = () => {
 
           <button
             className='btn cute-button'
-            style={{ marginRight: '10px', backgroundColor: '#ffcccb', borderRadius: '5px', color: 'black', fontWeight: 'bold', padding: '10px 20px', border: '2px solid #6a4d7a',transition: 'background-color 0.3s ease, border-color 0.3s ease',
+            style={{
+              marginRight: '10px', backgroundColor: '#ffcccb', borderRadius: '5px', color: 'black', fontWeight: 'bold', padding: '10px 20px', border: '2px solid #6a4d7a', transition: 'background-color 0.3s ease, border-color 0.3s ease',
             }}
             onMouseOver={(e) => {
               e.target.style.backgroundColor = '#ff9999';
@@ -46,15 +49,16 @@ const Navbar = () => {
 
           <button
             className='btn cute-button'
-            style={{ marginRight: '10px', backgroundColor: '#ffcccb', borderRadius: '5px', color: 'black',fontWeight: 'bold', padding: '10px 20px', border: '2px solid #6a4d7a', transition: 'background-color 0.3s ease, border-color 0.3s ease',
+            style={{
+              marginRight: '10px', backgroundColor: '#ffcccb', borderRadius: '5px', color: 'black', fontWeight: 'bold', padding: '10px 20px', border: '2px solid #6a4d7a', transition: 'background-color 0.3s ease, border-color 0.3s ease',
             }}
             onMouseOver={(e) => {
-              e.target.style.backgroundColor = '#ff9999'; 
-              e.target.style.borderColor = '#6a5acd'; 
+              e.target.style.backgroundColor = '#ff9999';
+              e.target.style.borderColor = '#6a5acd';
             }}
             onMouseOut={(e) => {
-              e.target.style.backgroundColor = '#ffcccb'; 
-              e.target.style.borderColor = '#6a4d7a'; 
+              e.target.style.backgroundColor = '#ffcccb';
+              e.target.style.borderColor = '#6a4d7a';
             }}
           >
             Accesorios

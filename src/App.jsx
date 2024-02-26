@@ -14,7 +14,7 @@ function App() {
     <>
     
      <Navbar/>
-     <ItemListContainer saludo= 'Bienvenido a LIBRA Ropa para Bebes'/>
+     <ItemListContainer greeting= 'Bienvenido a LIBRA Ropa para Bebes'/>
      
     </>
   )
