@@ -1,25 +1,68 @@
 import React from 'react';
 import classes from './Navbar.module.css'
 import CartWidget from '../CartWidget/CartWidget';
+import Logo from '../Logo/Logo'
 
 
 
 
 const Navbar = () => {
-    // console.log(classes)
+
   return (
     <>
-       
-       { <header className={classes.header}>
-       <h4 style={{display:'flex', justifyContent:'center', background:'pink', color:'purple', fontSize:40, alignItems:'center'}}>LIBRA </h4>
-      <nav style={{ display:'flex', justifyContent:'center', background:'pink', color:'red', fontSize:30, alignItems:'center', marginRight: '10px'}}>
-      <button  className='btn btn-outline-success' >Ropa Nena</button>
-      <button className='btn btn-outline-success'>Ropa Nene</button>
-      <button className='btn btn-outline-success'>Accesorio</button>
-      </nav>
-      <CartWidget/>
-      </header>}  
-   
+
+      {<header className={classes.header}>
+        <Logo />
+        <nav className="d-flex align-items-center gap-2">
+
+          <button
+            className='btn cute-button'
+            style={{
+              marginRight: '10px', backgroundColor: '#ffcccb', borderRadius: '5px',color: 'black', fontWeight: 'bold', padding: '10px 20px', border: '2px solid #6a4d7a', transition: 'background-color 0.3s ease, border-color 0.3s ease',
+            }}
+            onMouseOver={(e) => { e.target.style.backgroundColor = '#ff9999'; e.target.style.borderColor = '#6a5acd';
+            }}
+            onMouseOut={(e) => { e.target.style.backgroundColor = '#ffcccb'; e.target.style.borderColor = '#6a4d7a';
+            }}
+          >
+            Ropa Nena
+          </button>
+
+          <button
+            className='btn cute-button'
+            style={{ marginRight: '10px', backgroundColor: '#ffcccb', borderRadius: '5px', color: 'black', fontWeight: 'bold', padding: '10px 20px', border: '2px solid #6a4d7a',transition: 'background-color 0.3s ease, border-color 0.3s ease',
+            }}
+            onMouseOver={(e) => {
+              e.target.style.backgroundColor = '#ff9999';
+              e.target.style.borderColor = '#6a5acd';
+            }}
+            onMouseOut={(e) => {
+              e.target.style.backgroundColor = '#ffcccb';
+              e.target.style.borderColor = '#6a4d7a';
+            }}
+          >
+            Ropa Nene
+          </button>
+
+          <button
+            className='btn cute-button'
+            style={{ marginRight: '10px', backgroundColor: '#ffcccb', borderRadius: '5px', color: 'black',fontWeight: 'bold', padding: '10px 20px', border: '2px solid #6a4d7a', transition: 'background-color 0.3s ease, border-color 0.3s ease',
+            }}
+            onMouseOver={(e) => {
+              e.target.style.backgroundColor = '#ff9999'; 
+              e.target.style.borderColor = '#6a5acd'; 
+            }}
+            onMouseOut={(e) => {
+              e.target.style.backgroundColor = '#ffcccb'; 
+              e.target.style.borderColor = '#6a4d7a'; 
+            }}
+          >
+            Accesorios
+          </button>
+        </nav>
+        <CartWidget />
+      </header>}
+
     </>
   );
 };
