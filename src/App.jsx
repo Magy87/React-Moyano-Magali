@@ -7,6 +7,8 @@ import ItemCount from './component/ItemCount/ItemCount'
 
 //import viteLogo from '/vite.svg'
 import './App.css'
+import ItemDetail from './component/ItemDetail/ItemDetail'
+import ItemDetailContainer from './component/ItemDetailContainer/ItemdetailContainer'
 
 
 
@@ -17,7 +19,7 @@ function App() {
     
      <Navbar/>
      <ItemListContainer greeting= 'Bienvenido a LIBRA Ropa para Bebes'/>
-     <ItemCount stock={10} />
+     <ItemDetailContainer/>
     </>
   )
 }
