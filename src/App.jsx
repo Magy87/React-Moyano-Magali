@@ -3,8 +3,10 @@ import { useState } from 'react'
 //import React from 'react'
 import ItemListContainer from './component/ItemListContainer/ItemListContainer'
 import Navbar from './component/Navbar/navbar'
+import ItemCount from './component/ItemCount/ItemCount'
+
 //import viteLogo from '/vite.svg'
-//import './App.css'
+import './App.css'
 
 
 
@@ -15,7 +17,7 @@ function App() {
     
      <Navbar/>
      <ItemListContainer greeting= 'Bienvenido a LIBRA Ropa para Bebes'/>
-     
+     <ItemCount stock={10} />
     </>
   )
 }
