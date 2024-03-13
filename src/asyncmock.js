@@ -23,7 +23,7 @@ const products = [
         category: 'Ropa Nena',
         img: VestidoImage,
         stock: 16, 
-        description: 'vestido mang corta con flores'
+        description: 'Vestido manga corta con flores'
     },
     {
         id: '3',
@@ -32,7 +32,7 @@ const products = [
         category: 'Ropa Nene',
         img: AjuarImage, 
         stock: 12, 
-        description: 'Ajuar: gorro, batita y ranita. Color: Celeste'
+        description: 'Ajuar: Gorro, batita y ranita. Color: Celeste'
     },
     {
         id: '4',
