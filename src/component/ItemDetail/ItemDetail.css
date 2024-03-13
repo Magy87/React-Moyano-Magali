@@ -1,0 +1,29 @@
+
+.item-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.item-img {
+    width: 300px;
+}
+
+.item-name {
+    color: purple;
+    margin-top: 10px;
+}
+
+.item-price {
+    color: #8A2BE2; 
+    margin-top: 5px;
+}
+
+.item-description {
+    color: #320747; 
+    margin-top: 5px;
+}

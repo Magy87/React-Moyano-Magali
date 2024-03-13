@@ -10,13 +10,13 @@ const ItemDetailContainer = () => {
     useEffect(() => {
         getProductById(itemId)
             .then(result => {
-                setProduct(result); // Aquí se debe usar 'result' en lugar de 'response'
+                setProduct(result);
             });
     }, [itemId]);
 
     return (
         <main>
-            <h1>Detalle del Producto</h1>
+            <h1 style={{ color: 'darkmagenta', fontFamily: 'arial', fontWeight: 'bold'}} >Detalle del Producto</h1>
             <ItemDetail {...product} />
         </main>
     );
