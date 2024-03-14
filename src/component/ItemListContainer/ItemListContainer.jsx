@@ -5,7 +5,7 @@ import ItemList from "../ItemList/ItemList";
 
 const ItemListContainer = (props) => {
     const [products, setProducts] = useState([]);
-    const { category: categoryId } = useParams(); // Aquí se utiliza useParams correctamente
+    const { category: categoryId } = useParams(); 
 
     useEffect(() => {
         const asyncFunction = categoryId ? getProductsByCategory : getProducts;
