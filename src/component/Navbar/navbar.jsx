@@ -12,9 +12,9 @@ const Navbar = () => {
 
       {<header className={classes.header}>
 
-      <Link to="/" className={classes.logoLink}> {/* Envuelve el Logo con Link */}
-        <Logo />
-      </Link>
+        <Link to="/" className={classes.logoLink}>
+          <Logo />
+        </Link>
 
         <nav className="d-flex align-items-center gap-2">
 
@@ -50,7 +50,7 @@ const Navbar = () => {
             Ropa Nene
           </Link>
 
-          <Link to='/category/'
+          <Link to='/category/Accesorios'
             className='btn cute-button'
             style={{
               marginRight: '10px', backgroundColor: '#ffcccb', borderRadius: '5px', color: 'black', fontWeight: 'bold', padding: '10px 20px', border: '2px solid #6a4d7a', transition: 'background-color 0.3s ease, border-color 0.3s ease',

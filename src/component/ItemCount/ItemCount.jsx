@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const ItemCount = ({ initial = 1, stock, onAdd }) => {
+const ItemCount = ({ initialValue = 1, stock, onAdd }) => {
   const [count, setCount] = useState(initial);
 
   const decrement = () => {
@@ -19,7 +19,9 @@ const ItemCount = ({ initial = 1, stock, onAdd }) => {
     <article>
     <h3>{count}</h3>
     <button onClick={decrement} style={{ backgroundColor: 'rgba(255, 182, 193, 0.5)', color: 'black', borderRadius: '5px', marginRight: '5px' }}>-</button>
+
     <button onClick={() => onAdd(count)} style={{ backgroundColor: 'rgba(255, 182, 193, 0.5)', color: 'black', borderRadius: '5px', marginRight: '5px' }}>Agregar al Carrito</button>
+
     <button onClick={increment} style={{ backgroundColor: 'rgba(255, 182, 193, 0.5)', color: 'black', borderRadius: '5px' }}>+</button>
 </article>
 
