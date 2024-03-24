@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom'
-import './ItemDetail.css'; 
+import './ItemDetail.css';
+import { CartContext } from '../../Context/CartContext';
 
 const InputCount = ({ onAdd, stock, initial = 1 }) => {
     const [count, setCount] = useState(initial)
@@ -36,12 +37,12 @@ const ButtonCount = ({ onAdd, stock, initial = 1 }) => {
         <div>
             <p>{count}</p>
             <button onClick={decrement} style={{ backgroundColor: 'rgba(255, 182, 193, 0.5)', color: 'black', borderRadius: '5px', marginRight: '5px' }}>-</button>
-           
+
             <button onClick={() => onAdd(count)} style={{ backgroundColor: 'rgba(255, 182, 193, 0.5)', color: 'black', borderRadius: '5px', marginRight: '5px' }}>Agregar al carrito</button>
-           
+
             <button onClick={increment} style={{ backgroundColor: 'rgba(255, 182, 193, 0.5)', color: 'black', borderRadius: '5px' }}>+</button>
-          
-            
+
+
         </div>
     )
 }
@@ -50,16 +51,20 @@ const ButtonCount = ({ onAdd, stock, initial = 1 }) => {
 const ItemDetail = ({ id, name, category, img, price, stock, description }) => {
     const [quantity, setQuantity] = useState(0)
 
-    const ItemCount = stock === 0 ? InputCount : ButtonCount
 
-    const handleOnAdd = (count) => {
+    const ItemCount = stock === 0 ? InputCount : ButtonCount
+   
+    const { addItem } = useContext(CartContext)
+
+    const handleOnAdd = (quantity) => {
         const objProductToAdd = {
-            id, name, price, count
+            id, name, price, quantity
         }
         console.log(objProductToAdd)
-        console.log('agregue al carrito: ', count)
 
-        setQuantity(count)
+        setQuantity(quantity)
+
+        addItem(objProductToAdd)
     }
 
     return (
@@ -70,7 +75,7 @@ const ItemDetail = ({ id, name, category, img, price, stock, description }) => {
                 </h2>
             </header>
             <picture>
-            <img src={img} alt={name} className="item-img" />
+                <img src={img} alt={name} className="item-img" />
             </picture>
             <section>
                 <p className="item-category">
