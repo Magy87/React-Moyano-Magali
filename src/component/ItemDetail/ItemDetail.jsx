@@ -2,6 +2,7 @@ import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom'
 import './ItemDetail.css';
 import { CartContext } from '../../Context/CartContext';
+import ItemCount from '../ItemCount/ItemCount';
 
 const InputCount = ({ onAdd, stock, initial = 1 }) => {
     const [count, setCount] = useState(initial)
@@ -51,7 +52,7 @@ const ButtonCount = ({ onAdd, stock, initial = 1 }) => {
 const ItemDetail = ({ id, name, category, img, price, stock, description }) => {
     const [quantity, setQuantity] = useState(0)
 
-  //  const ItemCount = inputType === 'input' ? InputCount : ButtonCount
+    //  const ItemCount = inputType === 'input' ? InputCount : ButtonCount
     const ItemCount = stock === 0 ? InputCount : ButtonCount
 
     const { addItem } = useContext(CartContext)
@@ -93,10 +94,20 @@ const ItemDetail = ({ id, name, category, img, price, stock, description }) => {
                     quantity === 0 ? (
                         <ItemCount onAdd={handleOnAdd} stock={stock} />
                     ) : (
-                        <Link to='/cart'>Finalizar compra</Link>
+                        <>
+                            <div className="link-container">
+                                <Link to='/' className="link">Seguir comprando</Link>
+
+                            </div>
+                            <div className="link-container">
+                                <Link to='/cart' className="link">Finalizar compra</Link>
+                            </div>
+                        </>
                     )
                 }
             </footer>
+
+
         </article>
     )
 }
