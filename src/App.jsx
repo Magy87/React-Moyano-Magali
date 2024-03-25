@@ -19,6 +19,7 @@ const App = () => {
             <Route path='/' element={<ItemListContainer greeting='Bienvenido a LIBRA Ropa para Bebes' />} />
             <Route path='/category/:category' element={<ItemListContainer greeting='Productos de la Categoria' />} />
             <Route path='/itemId/:itemId' element={<ItemDetailContainer />} />
+
           </Routes>
         </BrowserRouter>
       </CartProvider>
@@ -26,5 +27,5 @@ const App = () => {
   );
 }
 
-export default App;
+export default App
 

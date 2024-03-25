@@ -28,11 +28,12 @@ export const CartProvider = ({ children }) => {
         return acumulador
     }
 
-    const totalQuantity = getTotalQuantity()
+    const totalQuantity = getTotalQuantity();
 
     return (
         <CartContext.Provider value={{ cart, addItem, totalQuantity }}>
             {children}
         </CartContext.Provider>
     )
+    
 }

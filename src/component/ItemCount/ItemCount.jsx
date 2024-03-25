@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react'
 
 const ItemCount = ({ initialValue = 1, stock, onAdd }) => {
-  const [count, setCount] = useState(initial);
+  const [count, setCount] = useState(initialValue)
 
   const decrement = () => {
     if (count > 1) {
-      setCount((prev) => prev - 1);
+      setCount((count) => count - 1);
     }
   };
 
@@ -29,4 +29,4 @@ const ItemCount = ({ initialValue = 1, stock, onAdd }) => {
   );
 };
 
-export default ItemCount;
+export default ItemCount

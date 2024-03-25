@@ -51,9 +51,9 @@ const ButtonCount = ({ onAdd, stock, initial = 1 }) => {
 const ItemDetail = ({ id, name, category, img, price, stock, description }) => {
     const [quantity, setQuantity] = useState(0)
 
-
+  //  const ItemCount = inputType === 'input' ? InputCount : ButtonCount
     const ItemCount = stock === 0 ? InputCount : ButtonCount
-   
+
     const { addItem } = useContext(CartContext)
 
     const handleOnAdd = (quantity) => {
