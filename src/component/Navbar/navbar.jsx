@@ -19,7 +19,7 @@ const Navbar = () => {
         <nav className="d-flex align-items-center gap-2">
 
           <Link to='/category/Ropa Nena'
-            className='btn cute-button'
+             className='btn cute-button'
             style={{
               marginRight: '10px', backgroundColor: '#ffcccb', borderRadius: '5px', color: 'black', fontWeight: 'bold', padding: '10px 20px', border: '2px solid #6a4d7a', transition: 'background-color 0.3s ease, border-color 0.3s ease',
             }}

@@ -12,7 +12,7 @@ const ItemListContainer = ({ greeting }) => {
 
     const [render, setRender] = useState(false)
 
-    const { categoryId } = useParams()
+    const { category } = useParams()
 
     const { showNotification } = useNotification()
 
@@ -24,28 +24,28 @@ const ItemListContainer = ({ greeting }) => {
 
     useEffect(() => {
 
-        const asyncFunction = categoryId ? getProductsByCategory : getProducts
+        const asyncFunction = category ? getProductsByCategory : getProducts
 
-        asyncFunction(categoryId)
+        asyncFunction(category)
             .then(result => {
                 setProducts(result)
             })
             .catch(error => {
                 showNotification('error', 'Hubo un error cargado los productos')
             })
-    }, [categoryId]);
+    }, [category])
+
     return (
         <div>
-           
+
             <h1 style={{ color: 'darkmagenta', fontFamily: 'arial', fontWeight: 'bold', margin: 10, fontSize: 45, display: 'flex', justifyContent: 'center' }}>{greeting}</h1>
-           
-              <div onClick={() => console.log('hice click en itemlistcontainer')}>
-           
-            <ItemListMemoized products={products}/>
+
+            <div >
+                <ItemListMemoized products={products} />
+            </div>
         </div>
-        </div>
-    );
-    }
+    )
+}
 
 export default ItemListContainer
 

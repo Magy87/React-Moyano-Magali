@@ -1,4 +1,4 @@
- import Cart from './assest/pngwing.com.png'
+import Cart from './assest/pngwing.com.png'
 import { useContext } from 'react'
 import { CartContext } from '../../Context/CartContext'
 
@@ -10,7 +10,7 @@ const CartWidget = () => {
     return (
         <button>
             <img width='30px' height='30px' src={Cart} />
-            { totalQuantity }
+            {totalQuantity}
         </button>
     )
 }
