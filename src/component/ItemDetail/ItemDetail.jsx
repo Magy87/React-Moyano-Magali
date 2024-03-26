@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import './ItemDetail.css';
 import { CartContext } from '../../Context/CartContext';
 import ItemCount from '../ItemCount/ItemCount';
+import { useNotification } from '../../Notificacion/Hooks/useNotification';
+
 
 const InputCount = ({ onAdd, stock, initial = 1 }) => {
     const [count, setCount] = useState(initial)
@@ -57,11 +59,14 @@ const ItemDetail = ({ id, name, category, img, price, stock, description }) => {
 
     const { addItem } = useContext(CartContext)
 
+    const { showNotification } = useNotification()
+
     const handleOnAdd = (quantity) => {
         const objProductToAdd = {
             id, name, price, quantity
         }
         console.log(objProductToAdd)
+        showNotification('success', `Se agrego correctamente ${quantity} ${name}`)
 
         setQuantity(quantity)
 
