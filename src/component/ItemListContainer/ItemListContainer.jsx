@@ -3,14 +3,13 @@ import { useParams } from "react-router-dom";
 // import { getProducts, getProductsByCategory } from "../../asyncmock";
 import ItemList from "../ItemList/ItemList";
 import { useNotification } from "../../Notificacion/Hooks/useNotification";
-//import { getDocs, Collection, QuerySnapshot } from 'firebase/firestore'
 import { db } from '../../service/firebase/firebaseConfig'
 import { getDocs, collection, query, where} from 'firebase/firestore';
 
 const ItemListMemoized = memo(ItemList)
 
 const ItemListContainer = ({ greeting }) => {
-    // const [products, setProducts] = useState()
+    
     const [products, setProducts] = useState([]);
 
     const [render, setRender] = useState(false)

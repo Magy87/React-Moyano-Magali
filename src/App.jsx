@@ -6,6 +6,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useState, createContext } from 'react';
 import { CartProvider } from './Context/CartContext';
 import { NotificationProvider } from './Notificacion/NotificationService'
+import CartView from './component/CartView/CartView'
+import Checkout from './component/Checkout/Checkout';
+
+
 
 const App = () => {
 
@@ -20,6 +24,8 @@ const App = () => {
               <Route path='/' element={<ItemListContainer greeting='Bienvenido a LIBRA Ropa para Bebes' />} />
               <Route path='/category/:category' element={<ItemListContainer greeting='Productos de la Categoria' />} />
               <Route path='/itemId/:itemId' element={<ItemDetailContainer />} />
+              <Route path='/cart' element={<CartView/>}/>
+              <Route path='/Checkout' element ={<Checkout/>}/>
 
             </Routes>
           </CartProvider>
