@@ -1,8 +1,11 @@
 import { useState, useEffect, memo } from "react";
 import { useParams } from "react-router-dom";
-import { getProducts, getProductsByCategory } from "../../asyncmock";
+// import { getProducts, getProductsByCategory } from "../../asyncmock";
 import ItemList from "../ItemList/ItemList";
 import { useNotification } from "../../Notificacion/Hooks/useNotification";
+//import { getDocs, Collection, QuerySnapshot } from 'firebase/firestore'
+import { db } from '../../service/firebase/firebaseConfig'
+import { getDocs, collection, query, where} from 'firebase/firestore';
 
 const ItemListMemoized = memo(ItemList)
 
@@ -12,28 +15,36 @@ const ItemListContainer = ({ greeting }) => {
 
     const [render, setRender] = useState(false)
 
-    const { category } = useParams()
+    const { category: categoryId } = useParams();
+
 
     const { showNotification } = useNotification()
+    useEffect(()=>{
+        setTimeout(()=>{
+            setRender(prev=>!prev)
+        },2000)
+    },[])
 
     useEffect(() => {
-        setTimeout(() => {
-            setRender(prev => !prev)
-        }, 2000)
-    }, [])
-
-    useEffect(() => {
-
-        const asyncFunction = category ? getProductsByCategory : getProducts
-
-        asyncFunction(category)
-            .then(result => {
-                setProducts(result)
+        const productsCollection = categoryId ? (
+            query(collection(db, 'products'), where('category', '==', categoryId))
+        ) : (
+            collection(db, 'products')
+        )
+    
+        getDocs(productsCollection)
+            .then(querySnapshot => {
+                const productsAdapted = querySnapshot.docs.map(doc => {
+                    const data = doc.data();
+                    return { id: doc.id, ...data };
+                });
+                setProducts(productsAdapted);
             })
             .catch(error => {
-                showNotification('error', 'Hubo un error cargado los productos')
-            })
-    }, [category])
+                console.error('Error obteniendo documentos:', error);
+            });
+    }, [categoryId]);
+    
 
     return (
         <div>
