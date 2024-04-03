@@ -21,7 +21,7 @@ const CartView = () => {
             <section className="cart-section">
                 {cart.map(product => (
                     <div key={product.id} className="cart-item">
-                        <img src={product.imageURL} alt={product.name} className="cart-item-image" />
+                        <img src={product.img} alt={product.name} className="cart-item-image" />
                         <div className="cart-item-details">
                             <h2 className="cart-item-name">{product.name}</h2>
                             <p className="cart-item-quantity">Cantidad: {product.quantity}</p>

@@ -18,7 +18,14 @@ export const CartProvider = ({ children }) => {
     const isInCart = (id) => {
         return cart.some(prod => prod.id === id);
     };
-
+    const clearCart = () => {
+        setCart([])
+      }
+  
+      const removeItem = (id) => {
+        const updatedCart = cart.filter(prod => prod.id !== id)
+        setCart(updatedCart)
+      }
     const getTotalQuantity = () => {
         let acumulador = 0;
 

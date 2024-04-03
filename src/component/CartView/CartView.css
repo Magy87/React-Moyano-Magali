@@ -57,7 +57,7 @@
 .cart-total {
     margin-top: 20px;
     text-align: center;
-    font-size: 15px;
+    font-size: 25px;
     color: #7341a1;
     font-weight: bold;
 
@@ -67,13 +67,17 @@
     display: block;
     width: fit-content;
     padding: 10px 20px;
-    background-color: #FF69B4;
+    background-color: #fa6db3;
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
     margin: 20px auto;
+    transition: all 0.3s ease;
 }
 
 .checkout-button:hover {
-    background-color: #FF1493;
+    color: black;
+    background-color: #df0378;
+    transform: scale(1.2);
+    
 }
