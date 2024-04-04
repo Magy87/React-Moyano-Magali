@@ -1,10 +1,9 @@
 import { useState, useContext } from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import './ItemDetail.css';
 import { CartContext } from '../../Context/CartContext';
 import ItemCount from '../ItemCount/ItemCount';
 import { useNotification } from '../../Notificacion/Hooks/useNotification';
-
 
 const InputCount = ({ onAdd, stock, initial = 1 }) => {
     const [count, setCount] = useState(initial)
@@ -50,27 +49,18 @@ const ButtonCount = ({ onAdd, stock, initial = 1 }) => {
     )
 }
 
-
 const ItemDetail = ({ id, name, category, img, price, stock, description }) => {
-    const [quantity, setQuantity] = useState(0)
-
-    //  const ItemCount = inputType === 'input' ? InputCount : ButtonCount
-    const ItemCount = stock === 0 ? InputCount : ButtonCount
-
-    const { addItem } = useContext(CartContext)
-
-    const { showNotification } = useNotification()
+    const ItemCount = stock === 0 ? InputCount : ButtonCount;
+    const { addItem, isInCart } = useContext(CartContext);
+    const { showNotification } = useNotification();
 
     const handleOnAdd = (quantity) => {
         const objProductToAdd = {
             id, name, price, quantity
         }
-        console.log(objProductToAdd)
-        showNotification('success', `Se agrego correctamente ${quantity} ${name}`)
-
-        setQuantity(quantity)
-
-        addItem(objProductToAdd)
+        console.log(objProductToAdd);
+        showNotification('success', `Se agregó correctamente ${quantity} ${name}`);
+        addItem(objProductToAdd);
     }
 
     return (
@@ -96,7 +86,7 @@ const ItemDetail = ({ id, name, category, img, price, stock, description }) => {
             </section>
             <footer>
                 {
-                    quantity === 0 ? (
+                    !isInCart(id) ? (
                         <ItemCount onAdd={handleOnAdd} stock={stock} />
                     ) : (
                         <>
@@ -111,11 +101,10 @@ const ItemDetail = ({ id, name, category, img, price, stock, description }) => {
                     )
                 }
             </footer>
-
-
         </article>
     )
 }
 
-export default ItemDetail
+export default ItemDetail;
+
 

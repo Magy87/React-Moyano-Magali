@@ -5,7 +5,7 @@ import './CartView.css';
 import { getDocs, collection, query, where } from 'firebase/firestore';
 
 const CartView = () => {
-    const { cart } = useContext(CartContext);
+    const { cart, removeItem } = useContext(CartContext);
 
     const calculateTotal = () => {
         let total = 0;
@@ -26,6 +26,8 @@ const CartView = () => {
                             <h2 className="cart-item-name">{product.name}</h2>
                             <p className="cart-item-quantity">Cantidad: {product.quantity}</p>
                             <p className="cart-item-price">Precio unitario: ${product.price}</p>
+                            <button className="cart-item-remove-button" onClick={() => removeItem(product.id)}>Eliminar</button>
+
                         </div>
                     </div>
                 ))}
@@ -39,4 +41,5 @@ const CartView = () => {
 }
 
 export default CartView;
+
 

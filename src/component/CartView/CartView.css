@@ -13,7 +13,7 @@
 
 
 .cart-item {
-    border: 2px solid #8A2BE2;
+    border: 2px solid #4602b3;
     border-radius: 15px;
     padding: 10px;
     display: flex;
@@ -38,7 +38,7 @@
 }
 
 .cart-item-name {
-    color: #800080;
+    color: #04aa9c;
     margin-bottom: 5px;
     font-weight: bold;
 }
@@ -47,7 +47,7 @@
 .cart-item-price {
     margin: 5px 0;
     font-size: 14px;
-    color: red;
+    color: rgb(109, 3, 56);
 }
 
 .cart-item-price {
@@ -80,4 +80,20 @@
     background-color: #df0378;
     transform: scale(1.2);
     
+}
+
+.cart-item-remove-button {
+    background-color: #f52f2f; 
+    color: white; 
+    border: none;
+    border-radius: 5px; 
+    padding: 5px 10px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+    transition: all 0.3s ease;
+}
+
+.cart-item-remove-button:hover {
+    background-color: #fa0505;
+    transform: scale(1.09);
 }

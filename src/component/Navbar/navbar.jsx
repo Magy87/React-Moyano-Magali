@@ -3,10 +3,28 @@ import classes from './Navbar.module.css'
 import CartWidget from '../CartWidget/CartWidget';
 import Logo from '../Logo/Logo'
 import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react';
+import {db} from '../../service/firebase/firebaseConfig'
+import { QuerySnapshot, collection, getDocs } from 'firebase/firestore';
 
 
 const Navbar = () => {
+  const [categories, setCategories] = useState([])
+  const navigate =useNavigate()
 
+
+  useEffect(() => {
+    const categoriesCollection = collection(db, 'categories')
+    getDocs(categoriesCollection)
+      .then(querySnapshot => {
+        const categoriesAdapted = querySnapshot.docs.map(doc => {
+          const data = doc.data()
+          return { id: doc.id, ...data }
+        })
+        setCategories(categoriesAdapted)
+      })
+  }, []) 
+  
   return (
     <>
 
