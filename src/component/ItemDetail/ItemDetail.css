@@ -44,19 +44,61 @@
 
 .link-container {
     margin-bottom: 8px;
+
 }
 
+.footer{
+    display: flex;
+}
 .link {
+    margin-right: 10px;
     display: block;
+    background-color: #e0bef1;
     text-decoration: none;
     color: #ff0707;
+    border-radius: 5px;
     font-weight: bold;
+    padding: 8px 15px;
     transition: font-size 0.3s;
-
+   
 }
 
 .link:hover {
     color: #043b75;
     background-color: rgb(243, 217, 221);
-    font-size: 1.1em;
+    font-size: 1.3em;
+}
+
+
+
+
+.counter-container p {
+    margin-right: 5px;
+}
+
+.counter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button-container {
+    display: flex;
+}
+
+.counter-button {
+    margin-right: 10px;
+    background-color: rgba(252, 157, 171, 0.5);
+    color: rgb(2, 2, 2);
+    border-radius: 7px;
+    margin-right: 4px;
+    padding: 7px 15px;
+    font-weight: bold;
+    border: 2px solid #9060aa;
+}
+.counter-button:hover{
+    background-color: #f15ba1;
+}
+.counter-button:last-child {
+    margin-right: 0; /* Eliminar el margen derecho del último botón */
 }

@@ -1,4 +1,4 @@
-.header{
+.header {
     width: 100%;
     padding-right: 15px;
     padding-left: 15px;
@@ -7,3 +7,21 @@
     justify-content: space-between;
     align-items: center;
 }
+
+.button {
+    margin-right: 10px;
+    background-color: #ffcccb;
+    text-decoration: none;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 2px solid #9060aa;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #f15ba1;
+    border-color: #6a5acd;
+}
+

@@ -36,16 +36,16 @@ const ButtonCount = ({ onAdd, stock, initial = 1 }) => {
     }
 
     return (
-        <div>
-            <p>{count}</p>
-            <button onClick={decrement} style={{ backgroundColor: 'rgba(255, 182, 193, 0.5)', color: 'black', borderRadius: '5px', marginRight: '5px' }}>-</button>
-
-            <button onClick={() => onAdd(count)} style={{ backgroundColor: 'rgba(255, 182, 193, 0.5)', color: 'black', borderRadius: '5px', marginRight: '5px' }}>Agregar al carrito</button>
-
-            <button onClick={increment} style={{ backgroundColor: 'rgba(255, 182, 193, 0.5)', color: 'black', borderRadius: '5px' }}>+</button>
-
-
+        <div className="counter-container">
+        <p>{count}</p>
+        <div className="button-container">
+            <button onClick={decrement} className="counter-button">-</button>
+            <button onClick={() => onAdd(count)} className="counter-button">Agregar al carrito</button>
+            <button onClick={increment} className="counter-button">+</button>
         </div>
+    </div>
+    
+
     )
 }
 
@@ -84,7 +84,7 @@ const ItemDetail = ({ id, name, category, img, price, stock, description }) => {
                     Precio: ${price}
                 </p>
             </section>
-            <footer>
+            <footer className='footer'>
                 {
                     !isInCart(id) ? (
                         <ItemCount onAdd={handleOnAdd} stock={stock} />
