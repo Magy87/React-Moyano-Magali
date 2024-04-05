@@ -2,15 +2,24 @@
     width: 100%;
     padding-right: 15px;
     padding-left: 15px;
-    background-color: #faeaeab7;
+    background-color: #ffcccb;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    min-height:auto;
+    margin-bottom: 0;
+}
+
 .button {
     margin-right: 10px;
-    background-color: #ffcccb;
+    background-color: #faeaeab7;
     text-decoration: none;
     border-radius: 5px;
     color: black;
@@ -24,4 +33,3 @@
     background-color: #f15ba1;
     border-color: #6a5acd;
 }
-

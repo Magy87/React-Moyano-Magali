@@ -53,7 +53,7 @@
 .link {
     margin-right: 10px;
     display: block;
-    background-color: #e0bef1;
+    /* background-color: #e0bef1; */
     text-decoration: none;
     color: #ff0707;
     border-radius: 5px;

@@ -1,17 +1,19 @@
 import React, { useState, useContext } from 'react';
 import { CartContext } from '../../Context/CartContext';
 import './Checkout.css';
-import { db } from '../../service/firebase/firebaseConfig'
-import { writeBatch, collection, addDoc, getDocs, documentId, query, where } from 'firebase/firestore'; 
+import { db } from '../../service/firebase/firebaseConfig';
+import { writeBatch, collection, addDoc, getDocs, documentId, query, where } from 'firebase/firestore';
 
 const Checkout = () => {
     const [loading, setLoading] = useState(false);
     const [orderId, setOrderId] = useState(null);
+    const [error, setError] = useState(null);
     const { cart, total, clearCart } = useContext(CartContext);
 
     const [userData, setUserData] = useState({
         name: '',
         email: '',
+        confirmEmail: '',
         phone: '',
         address: ''
     });
@@ -26,7 +28,6 @@ const Checkout = () => {
 
     const createOrder = async () => {
         try {
-
             setLoading(true);
             const batch = writeBatch(db);
             const outOfStock = [];
@@ -50,6 +51,12 @@ const Checkout = () => {
             });
 
             if (outOfStock.length === 0) {
+                if (userData.email !== userData.confirmEmail) {
+                    setError('Los correos electrónicos ingresados no coinciden.');
+                    setLoading(false);
+                    return;
+                }
+
                 const objOrder = {
                     buyer: userData,
                     items: [],
@@ -58,7 +65,6 @@ const Checkout = () => {
 
                 const orderCollection = collection(db, 'orders');
                 const { id } = await addDoc(orderCollection, objOrder);
-                console.log('Order ID:', id);
 
                 batch.commit();
                 clearCart();
@@ -78,12 +84,18 @@ const Checkout = () => {
     }
 
     if (orderId) {
-        return <h1>El ID de su orden es: {orderId}</h1>;
+        return (
+            <div className="order-confirmation">
+                <h1>Gracias por su compra</h1>
+                <p>El ID de su orden es: {orderId}</p>
+            </div>
+        );
     }
 
     return (
         <div className="form-container">
             <h1 className='checkout'>Checkout</h1>
+            {error && <p className="error-message">{error}</p>}
             <form>
                 <div className="form-group">
                     <label>Nombre:</label>
@@ -100,6 +112,15 @@ const Checkout = () => {
                         type="email"
                         name="email"
                         value={userData.email}
+                        onChange={handleInputChange}
+                    />
+                </div>
+                <div className="form-group">
+                    <label>Confirmar Correo electrónico:</label>
+                    <input
+                        type="email"
+                        name="confirmEmail"
+                        value={userData.confirmEmail}
                         onChange={handleInputChange}
                     />
                 </div>

@@ -1,6 +1,5 @@
-.checkout{
+.checkout {
     color: rgb(243, 35, 149);
-    /* background-color: gray; */
 }
 
 .form-container {
@@ -10,6 +9,7 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    
 }
 
 
@@ -56,4 +56,29 @@
     .form-container {
         max-width: 90%;
     }
+}
+
+.error-message {
+    color: red;
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+.order-confirmation {
+    text-align: center;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.order-confirmation h1 {
+    color: rgb(255, 0, 170);
+    font-family: sans-serif;
+    font-size: 5em;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+
+.order-confirmation p {
+    font-size: 1.8em;
 }

@@ -65,7 +65,7 @@ const ItemDetail = ({ id, name, category, img, price, stock, description }) => {
 
     return (
         <article className="item-container">
-            <header>
+            <header >
                 <h2 className="item-name">
                     {name}
                 </h2>
@@ -92,7 +92,6 @@ const ItemDetail = ({ id, name, category, img, price, stock, description }) => {
                         <>
                             <div className="link-container">
                                 <Link to='/' className="link">Seguir comprando</Link>
-
                             </div>
                             <div className="link-container">
                                 <Link to='/cart' className="link">Finalizar compra</Link>

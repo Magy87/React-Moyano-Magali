@@ -4,25 +4,24 @@ import { useParams } from "react-router-dom";
 import ItemList from "../ItemList/ItemList";
 import { useNotification } from "../../Notificacion/Hooks/useNotification";
 import { db } from '../../service/firebase/firebaseConfig'
-import { getDocs, collection, query, where} from 'firebase/firestore';
+import { getDocs, collection, query, where } from 'firebase/firestore';
 
 const ItemListMemoized = memo(ItemList)
 
 const ItemListContainer = ({ greeting }) => {
-    
+
     const [products, setProducts] = useState([]);
 
     const [render, setRender] = useState(false)
 
     const { category: categoryId } = useParams();
 
-
     const { showNotification } = useNotification()
-    useEffect(()=>{
-        setTimeout(()=>{
-            setRender(prev=>!prev)
-        },2000)
-    },[])
+    useEffect(() => {
+        setTimeout(() => {
+            setRender(prev => !prev)
+        }, 2000)
+    }, [])
 
     useEffect(() => {
         const productsCollection = categoryId ? (
@@ -30,7 +29,7 @@ const ItemListContainer = ({ greeting }) => {
         ) : (
             collection(db, 'products')
         )
-    
+
         getDocs(productsCollection)
             .then(querySnapshot => {
                 const productsAdapted = querySnapshot.docs.map(doc => {
@@ -43,12 +42,12 @@ const ItemListContainer = ({ greeting }) => {
                 console.error('Error obteniendo documentos:', error);
             });
     }, [categoryId]);
-    
+
 
     return (
-        <div>
+        <div >
 
-            <h1 style={{ color: 'darkmagenta', fontFamily: 'arial', fontWeight: 'bold', margin: 10, fontSize: 45, display: 'flex', justifyContent: 'center' }}>{greeting}</h1>
+            <h1 style={{ color: 'darkmagenta', fontFamily: 'arial', fontWeight: 'bold', margin: 10, fontSize: 45, display: 'flex', justifyContent: 'center', textShadow: '2px 2px 5px rgba(0, 0, 0, 0.5)' }}>{greeting}</h1>
 
             <div >
                 <ItemListMemoized products={products} />

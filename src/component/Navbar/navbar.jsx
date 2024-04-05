@@ -2,14 +2,14 @@ import React from 'react';
 import classes from './Navbar.module.css';
 import CartWidget from '../CartWidget/CartWidget';
 import Logo from '../Logo/Logo';
-import { Link, useNavigate } from 'react-router-dom'; // Importa useNavigate
+import { Link, useNavigate } from 'react-router-dom'; 
 import { useEffect, useState } from 'react';
 import { db } from '../../service/firebase/firebaseConfig';
 import { collection, getDocs, orderBy, query, limit } from 'firebase/firestore'
 
 const Navbar = () => {
   const [categories, setCategories] = useState([])
-  const navigate = useNavigate(); // Usa useNavigate
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     const categoriesCollection = query(collection(db, 'categories'), orderBy('order'));
@@ -27,8 +27,6 @@ const Navbar = () => {
   }, []);
 
   return (
-
-
     <header className={classes.header}>
       <Link to="/" className={classes.logoLink}>
         <Logo />
@@ -40,21 +38,13 @@ const Navbar = () => {
           </Link>
         ))}
       </nav>
-      {/* <nav className={`d-flex align-items-center gap-2 ${classes.nav}`}>
-        {
-          categories.map(cat => {
-            return <Link key={cat.id} to={`/category/${cat.slug}`} > {cat.name}
-            </Link>
-          })
-        }
-      </nav> */}
       <CartWidget />
     </header> 
-
-
   );
 };
 
 export default Navbar;
+
+
 
 
