@@ -18,10 +18,6 @@ const ItemDetailContainer = () => {
             const productAdapted={id:QueryDocumentSnapshot.id,...data}
             setProduct(productAdapted)
         })
-        // getProductById(itemId)
-        //     .then(result => {
-        //         setProduct(result);
-        //     });
     }, [itemId]);
 
     return (
