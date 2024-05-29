@@ -100,5 +100,5 @@
     background-color: #f15ba1;
 }
 .counter-button:last-child {
-    margin-right: 0; /* Eliminar el margen derecho del último botón */
+    margin-right: 0; 
 }
