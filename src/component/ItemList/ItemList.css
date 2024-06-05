@@ -6,11 +6,13 @@
     gap: 1rem;
 
     @media (min-width: 1000px) {
+     
         display: grid;
         justify-items: center;
         align-items: center;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr;
-        gap: 1rem; /* Puedes agregar o ajustar el espacio entre los elementos en la cuadrícula */
+        gap: 1rem; /
     }
 }
+/* prueba */
